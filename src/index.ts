@@ -1,28 +1,44 @@
 export interface Object {
+  /** Column index (0-based) */
   column: number;
-  start: number; // ms
-  end?: number; // ms, optional for hold notes
+  /** Start time in milliseconds */
+  start: number;
+  /** End time in milliseconds, optional for hold notes */
+  end?: number;
 }
 
 export interface TimingPoint {
-  time: number; // ms
+  /** Time in milliseconds */
+  time: number;
+  /** Beats per minute */
   bpm: number;
+  /** Time signature numerator (meter) */
   meter: number;
 }
 
 export interface Beatmap {
+  /** Number of columns (keys) */
   keys: number;
-  start?: number; // ms, default to 0
-  end?: number; // ms, default to max object end time
+  /** Start time in ms, defaults to 0 */
+  start?: number;
+  /** End time in ms, defaults to max object end time */
+  end?: number;
+  /** Note objects */
   objects: Object[];
+  /** Timing points */
   timingPoints: TimingPoint[];
 }
 
+/** Note color identifiers used in options and key maps */
 export enum colorId {
-  n1, // note 1
-  n2, // note 2
-  mid, // middle note
-  edge, // edge note for 9k, 10k
+  /** note 1 */
+  n1,
+  /** note 2 */
+  n2,
+  /** middle note */
+  mid,
+  /** edge note for 9k/10k */
+  edge,
 }
 
 const renderOptions = {

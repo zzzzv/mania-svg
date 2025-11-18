@@ -129,7 +129,7 @@ export class SVGRenderer {
     </g>
   </defs>
   ${this.createBackground()}
-  <g transform="translate(0, ${this.baseHeight}) scale(${scaleX}, ${-scaleY})">
+  <g transform="scale(${scaleX}, ${-scaleY}) translate(0, ${-this.baseHeight})">
     ${this.createStripGroup()}
   </g>
 </svg>`;

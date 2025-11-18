@@ -1997,7 +1997,7 @@
     </g>
   </defs>
   <rect width="100%" height="100%" fill="#000000" />
-  <g transform="translate(0, 1295.625) scale(0.8, -0.8)">
+  <g transform="scale(0.8, -0.8) translate(0, -1295.625)">
     <g id="strips">
       <use href="#origin" transform="translate(20, 20)" clip-path="url(#strip-0)" />
       <use href="#origin" transform="translate(180, -1235.625)" clip-path="url(#strip-1)" />

@@ -1,0 +1,47 @@
+{
+  "name": "mania-svg",
+  "version": "0.1.0",
+  "description": "A TypeScript library for rendering osu!mania beatmaps to SVG format with vertical strip layout.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/zzzzv/mania-svg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzzzv/mania-svg.git"
+  },
+  "author": "zzzzv",
+  "keywords": [
+    "osu",
+    "mania",
+    "svg",
+    "beatmap",
+    "rhythm-game"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "tsdown": "^0.16.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.7",
+    "osu-classes": "^3.2.0-beta.0",
+    "osu-mania-stable": "^5.0.1",
+    "osu-parsers": "^4.2.0-beta.0"
+  }
+}

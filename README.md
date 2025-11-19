@@ -40,7 +40,7 @@ const data: Beatmap = {
   })),
 };
 
-const svg = render(data, {backgroundColor: '#000000'});
+const svg = render(data);
 ```
 
 **Type definitions and options:** See [source code](https://github.com/zzzzv/mania-svg/blob/main/src/index.ts).

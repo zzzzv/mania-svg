@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="1030.64">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1014.6400000000002">
   <defs>
     <g id="origin">
-      <g id="objects">
+      <g id="notes">
         <rect x="80" y="2.4000000000000004" width="20" height="29.200000000000003" rx="2" fill="#FFFFFF" />
         <rect x="20" y="2.4000000000000004" width="20" height="19.5" rx="2" fill="#5EAEFF" />
         <rect x="40" y="21.900000000000002" width="20" height="19.400000000000002" rx="2" fill="#FFFFFF" />
@@ -1999,14 +1999,14 @@
     </g>
   </defs>
   <rect width="100%" height="100%" fill="#000000" />
-  <g transform="scale(0.8, -0.8) translate(0, -1288.3000000000002)">
-    <use href="#origin" transform="translate(20, 20)" clip-path="url(#strip-0)" />
-    <use href="#origin" transform="translate(180, -1228.3000000000002)" clip-path="url(#strip-1)" />
-    <use href="#origin" transform="translate(340, -2476.6000000000004)" clip-path="url(#strip-2)" />
-    <use href="#origin" transform="translate(500, -3724.9000000000005)" clip-path="url(#strip-3)" />
-    <use href="#origin" transform="translate(660, -4973.200000000001)" clip-path="url(#strip-4)" />
-    <use href="#origin" transform="translate(820, -6221.500000000001)" clip-path="url(#strip-5)" />
-    <use href="#origin" transform="translate(980, -7469.800000000001)" clip-path="url(#strip-6)" />
-    <use href="#origin" transform="translate(1140, -8718.100000000002)" clip-path="url(#strip-7)" />
+  <g transform="scale(0.8, -0.8) translate(0, -1268.3000000000002)">
+    <use href="#origin" transform="translate(10, 10)" clip-path="url(#strip-0)" />
+    <use href="#origin" transform="translate(180, -1238.3000000000002)" clip-path="url(#strip-1)" />
+    <use href="#origin" transform="translate(350, -2486.6000000000004)" clip-path="url(#strip-2)" />
+    <use href="#origin" transform="translate(520, -3734.9000000000005)" clip-path="url(#strip-3)" />
+    <use href="#origin" transform="translate(690, -4983.200000000001)" clip-path="url(#strip-4)" />
+    <use href="#origin" transform="translate(860, -6231.500000000001)" clip-path="url(#strip-5)" />
+    <use href="#origin" transform="translate(1030, -7479.800000000001)" clip-path="url(#strip-6)" />
+    <use href="#origin" transform="translate(1200, -8728.100000000002)" clip-path="url(#strip-7)" />
   </g>
 </svg>

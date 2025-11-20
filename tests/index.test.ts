@@ -24,6 +24,6 @@ test('render', async () => {
     })),
   };
 
-  const svg = render(data, {finalScale: [0.8, 0.8]});
+  const svg = render(data, {strip: { mode: 'num' }, finalScale: [0.8, 0.8]});
   fs.writeFileSync('./tests/output.svg', svg);
 })

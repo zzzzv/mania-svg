@@ -2,7 +2,7 @@
 
 A TypeScript library for rendering osu!mania beatmaps to SVG format with vertical strip layout.
 
-<img src="https://raw.githubusercontent.com/zzzzv/mania-svg/main/tests/output.svg" alt="Example Output" width="400">
+<img src="https://raw.githubusercontent.com/zzzzv/mania-svg/main/assets/output.svg" alt="Example Output" width="400">
 
 ## Installation
 

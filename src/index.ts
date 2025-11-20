@@ -61,7 +61,7 @@ export function createColorSelector(
   };
 }
 
-const renderOptions = {
+const defaultOptions = {
   background: {
     /** Whether to render background */
     enabled: true,
@@ -80,7 +80,7 @@ const renderOptions = {
     /** Function to select color for each object */
     colorSelector: createColorSelector(),
     /** Function to create SVG elements for each object */
-    createElement: createObject,
+    createElement: createNote,
   },
   time: {
     /** Start time in ms */
@@ -98,78 +98,101 @@ const renderOptions = {
     createElement: createBarLine,
   },
   strip: {
+    /**
+     * Layout mode for strips
+     * - 'num': specify number of strips
+     * - 'time': specify time duration per strip
+    */
+    mode: 'num' as 'num' | 'time',
     /** Number of vertical strips to divide the timeline */
-    num: 8,
+    num: 8 as number | undefined,
+    /** Time duration per strip in ms */
+    time: 10000 as number | undefined,
     /** Spacing between strips in px */
-    spacing: 20,
+    spacing: 30,
   },
   /** Margin around the entire SVG in px */
-  margin: 20,
+  margin: 10,
   /** Final scale factor [x, y] applied to the entire SVG */
   finalScale: [1, 1] as [number, number],
-}
-
-export type OptionsType = typeof renderOptions;
-
-export type ResolvedOptionsType = Omit<OptionsType, 'time'> & {
-  time: {
-    start: number;
-    end: number;
-    scale: number;
-  };
 };
 
-export type RenderContext = {
-  beatmap: Beatmap;
-  options: ResolvedOptionsType;
+export type Options = typeof defaultOptions;
 
-  stripWidth: number;
-  stripHeight: number;
-}
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
 
-function createContext(beatmap: Beatmap, optionsOverride: Partial<OptionsType> = {}) {
-  const options = merge({}, renderOptions, optionsOverride);
+function createContext(beatmap: Beatmap, optionsOverride: DeepPartial<Options> = {}) {
+  const options = merge({}, defaultOptions, optionsOverride);
 
-  if (options.time.start === 'auto') {
-    options.time.start = Math.max(0, beatmap.timingPoints[0].time) ;
-  }
-  if (options.time.end === 'auto') {
-    options.time.end = beatmap.objects.reduce((max, note) => Math.max(max, note.end ?? note.start), options.time.start);
-  }
-  options.time.end += 100; // extra padding
-
-  const stripWidth = beatmap.keys * options.object.width;
-  const stripHeight = (options.time.end - options.time.start) * options.time.scale / options.strip.num;
-  
-  return {
-    beatmap, 
-    options: options as ResolvedOptionsType, 
-    stripWidth,
-    stripHeight,
-    totalWidth: options.margin * 2 + options.strip.num * stripWidth + (options.strip.num - 1) * options.strip.spacing,
-    totalHeight: options.margin * 2 + stripHeight,
+  let ctx = {
+    beatmap,
+    options,
+    start: 0,
+    end: 0,
+    stripNum: 0,
+    stripWidth: 0,
+    stripHeight: 0,
+    totalWidth: 0,
+    totalHeight: 0,
   };
+
+  ctx.start = options.time.start === 'auto' ?
+    Math.max(0, beatmap.timingPoints[0].time) :
+    options.time.start;
+
+  ctx.end = options.time.end === 'auto' ?
+    beatmap.objects.reduce((max, note) => Math.max(max, note.end ?? note.start), ctx.start) :
+    options.time.end;
+  ctx.end += 100; // extra padding at the end
+
+  if (options.strip.mode === 'num') {
+    if (options.strip.num === undefined) {
+      throw new Error('Strip num must be specified when strip mode is "num"');
+    }
+    ctx.stripNum = options.strip.num;
+    ctx.stripWidth = beatmap.keys * options.object.width;
+    ctx.stripHeight = (ctx.end - ctx.start) * options.time.scale / ctx.stripNum;
+  } else if (options.strip.mode === 'time') {
+    if (options.strip.time === undefined) {
+      throw new Error('Strip time must be specified when strip mode is "time"');
+    }
+    ctx.stripNum = Math.ceil((ctx.end - ctx.start) / options.strip.time);
+    ctx.end = ctx.start + ctx.stripNum * options.strip.time;
+  } else {
+    throw new Error(`Unsupported strip mode: ${options.strip.mode}`);
+  }
+
+  ctx.stripWidth = beatmap.keys * options.object.width;
+  ctx.stripHeight = (ctx.end - ctx.start) * options.time.scale / ctx.stripNum;
+  ctx.totalWidth = options.margin * 2 + ctx.stripNum * ctx.stripWidth + (ctx.stripNum - 1) * options.strip.spacing;
+  ctx.totalHeight = options.margin * 2 + ctx.stripHeight;
+  
+  return ctx;
 }
 
-export function render(beatmap: Beatmap, optionsOverride: Partial<OptionsType> = {}): string {
+export type Context = ReturnType<typeof createContext>;
+
+export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> = {}): string {
   const ctx = createContext(beatmap, optionsOverride);
 
-  const objects = flatMap(beatmap.objects, note => ctx.options.object.createElement(ctx, note));
+  const notes = flatMap(beatmap.objects, note => ctx.options.object.createElement(ctx, note));
 
-  const barLines = generateBarLinePositions(beatmap.timingPoints, ctx.options.time.start, ctx.options.time.end)
+  const barLines = generateBarLinePositions(beatmap.timingPoints, ctx.start, ctx.end)
     .flatMap(time => ctx.options.barline.createElement(ctx, time));
 
-  const clipPaths = flatMap(times(ctx.options.strip.num), i => createClipPath(ctx, i));
+  const clipPaths = flatMap(times(ctx.stripNum), i => createClipPath(ctx, i));
 
-  const strips = flatMap(times(ctx.options.strip.num), i => createStrip(ctx, i));
+  const strips = flatMap(times(ctx.stripNum), i => createStrip(ctx, i));
 
   const background = ctx.options.background.enabled ? ctx.options.background.createElement(ctx) : [];
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ctx.totalWidth * ctx.options.finalScale[0]}" height="${ctx.totalHeight * ctx.options.finalScale[1]}">
   <defs>
     <g id="origin">
-      <g id="objects">
-        ${objects.join('\n        ')}
+      <g id="notes">
+        ${notes.join('\n        ')}
       </g>
       <g id="barlines">
         ${barLines.join('\n        ')}
@@ -187,14 +210,14 @@ export function render(beatmap: Beatmap, optionsOverride: Partial<OptionsType> =
   return svg;
 }
 
-export function createBackground(ctx: RenderContext): string[] {
+function createBackground(ctx: Context): string[] {
   const color = ctx.options.background.color;
   return [`<rect width="100%" height="100%" fill="${color}" />`];
 }
 
-export function createObject(ctx: RenderContext, note: Note): string[] {
+function createNote(ctx: Context, note: Note): string[] {
   const x = note.column * ctx.options.object.width;
-  const y = (note.start - ctx.options.time.start) * ctx.options.time.scale;
+  const y = (note.start - ctx.start) * ctx.options.time.scale;
   const width = ctx.options.object.width;
   const height = note.end ? (note.end - note.start) * ctx.options.time.scale : ctx.options.object.height;
   const color = ctx.options.object.colorSelector(ctx.beatmap.keys, note);
@@ -202,8 +225,8 @@ export function createObject(ctx: RenderContext, note: Note): string[] {
   return [`<rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${ctx.options.object.rx}" fill="${color}" />`];
 }
 
-export function createBarLine(ctx: RenderContext, time: number): string[] {
-  const y = (time - ctx.options.time.start) * ctx.options.time.scale;
+function createBarLine(ctx: Context, time: number): string[] {
+  const y = (time - ctx.start) * ctx.options.time.scale;
   const width = ctx.beatmap.keys * ctx.options.object.width;
   const height = ctx.options.barline.height;
   const color = ctx.options.barline.color;
@@ -238,7 +261,7 @@ export function generateBarLinePositions(
   return result;
 }
 
-export function createClipPath(ctx: RenderContext, stripIndex: number): string[] {
+function createClipPath(ctx: Context, stripIndex: number): string[] {
   const y = stripIndex * ctx.stripHeight
   const width = ctx.beatmap.keys * ctx.options.object.width;
 
@@ -248,7 +271,7 @@ export function createClipPath(ctx: RenderContext, stripIndex: number): string[]
     `</clipPath>`];
 }
 
-export function createStrip(ctx: RenderContext, i: number): string[] {
+function createStrip(ctx: Context, i: number): string[] {
   const offsetX = ctx.options.margin + i * (ctx.stripWidth + ctx.options.strip.spacing);
   const offsetY = ctx.options.margin - i * ctx.stripHeight;
     

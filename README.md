@@ -43,7 +43,67 @@ const data: Beatmap = {
 const svg = render(data);
 ```
 
-**Type definitions and options:** See [source code](https://github.com/zzzzv/mania-svg/blob/main/src/index.ts).
+## Options
+
+<!-- OPTIONS:START -->
+```typescript
+const defaultOptions = {
+  background: {
+    /** Whether to render background */
+    enabled: true,
+    /** Background color of the SVG */
+    color: '#000000',
+    /** Function to create SVG elements for the background */
+    createElement: createBackground,
+  },
+  note: {
+    /** Width of each column in px */
+    width: 20,
+    /** Height of regular notes in px */
+    height: 6,
+    /** Corner radius in px */
+    rx: 2,
+    /** Function to select color for each object */
+    colorSelector: createColorSelector(),
+    /** Function to create SVG elements for each object */
+    createElement: createNote,
+  },
+  time: {
+    /** Start time in ms */
+    start: 'auto' as 'auto' | number,
+    /** End time in ms */
+    end: 'auto' as 'auto' | number,
+    /** Vertical scale: px per ms */
+    scale: 0.1,
+  },
+  barline: {
+    /** Height of bar lines in px */
+    height: 1,
+    color: '#85F000', // green
+    /** Function to create SVG elements for each bar line */
+    createElement: createBarLine,
+  },
+  strip: {
+    /**
+     * Layout mode for strips
+     * - 'num': specify number of strips
+     * - 'time': specify time duration per strip
+    */
+    mode: 'num' as 'num' | 'time',
+    /** Number of vertical strips to divide the timeline */
+    num: 8 as number | undefined,
+    /** Time duration per strip in ms */
+    time: 30000 as number | undefined,
+    /** Spacing between strips in px */
+    spacing: 30,
+  },
+  /** Margin around the entire SVG in px */
+  margin: 10,
+  /** Final scale factor [x, y] applied to the entire SVG */
+  finalScale: [1, 1] as [number, number],
+};
+```
+<!-- OPTIONS:END -->
 
 ## TODO
 

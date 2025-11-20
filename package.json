@@ -33,11 +33,14 @@
   "scripts": {
     "build": "tsdown",
     "test": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "update-readme": "node scripts/update-readme.js",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^24.10.0",
+    "husky": "^9.1.7",
     "osu-classes": "^3.2.0-beta.0",
     "osu-mania-stable": "^5.0.1",
     "osu-parsers": "^4.2.0-beta.0",

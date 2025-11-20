@@ -102,19 +102,40 @@ const defaultOptions = {
      * Layout mode for strips
      * - 'num': specify number of strips
      * - 'time': specify time duration per strip
+     * - 'ratio': specify target aspect ratio (width / height) to auto-calculate strip count (approximate)
     */
-    mode: 'num' as 'num' | 'time',
+    mode: 'num' as 'num' | 'time' | 'ratio',
     /** Number of vertical strips to divide the timeline */
     num: 8 as number | undefined,
     /** Time duration per strip in ms */
     time: 30000 as number | undefined,
+    /** Target aspect ratio (width / height), actual ratio may vary slightly */
+    ratio: 1.5 as number | undefined,
     /** Spacing between strips in px */
     spacing: 30,
   },
-  /** Margin around the entire SVG in px */
-  margin: 10,
-  /** Final scale factor [x, y] applied to the entire SVG */
-  finalScale: [1, 1] as [number, number],
+  layout: {
+    /**
+     * Margin around the entire SVG in px [horizontal, vertical]
+     * When targetSize is set, this value serves as the minimum margin
+     * and will be automatically adjusted to meet the target size requirements
+     */
+    margin: [10, 10] as [number, number],
+    /**
+     * Maximum scale factor applied to the entire SVG
+     * When targetSize is set:
+     * - Will be automatically reduced (if needed) to prevent content from exceeding targetSize
+     * - After scaling, margin will be adjusted to exactly meet targetSize requirements
+     */
+    finalScale: 1.0 as number,
+    /**
+     * Target size [width, height] for the final SVG
+     * When set, the SVG will be adjusted to fit this size by:
+     * 1. Reducing finalScale (if needed) to prevent content from exceeding targetSize
+     * 2. Adjusting margin (using the margin value as minimum) to exactly meet targetSize
+     */
+    targetSize: undefined as [number, number] | undefined,
+  },
 };
 
 export type Options = typeof defaultOptions;
@@ -127,7 +148,17 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
   let end = options.time.end === 'auto' ?
     beatmap.objects.reduce((max, note) => Math.max(max, note.end ?? note.start), start) :
     options.time.end;
-  end += 100; // add extra 100ms padding
+  end += options.note.height / options.time.scale;
+
+  const computeLayout = (stripNum: number) => {
+    const stripWidth = beatmap.keys * options.note.width;
+    const stripHeight = (end - start) * options.time.scale / stripNum;
+    const contentWidth = stripNum * stripWidth + (stripNum - 1) * options.strip.spacing;
+    const contentHeight = stripHeight;
+    const totalWidth = options.layout.margin[0] * 2 + contentWidth;
+    const totalHeight = options.layout.margin[1] * 2 + contentHeight;
+    return [stripWidth, stripHeight, contentWidth, contentHeight, totalWidth, totalHeight];
+  }
 
   let stripNum: number;
 
@@ -142,14 +173,49 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
     }
     stripNum = Math.ceil((end - start) / options.strip.time);
     end = start + stripNum * options.strip.time;
+  } else if (options.strip.mode === 'ratio') {
+    if (options.strip.ratio === undefined) {
+      throw new Error('Strip ratio must be specified when strip mode is "ratio"');
+    }
+    stripNum = 1;
+    let lastRatio = 0;
+    while (true) {
+      const [,,,, totalWidth, totalHeight] = computeLayout(stripNum);
+      const currentRatio = totalWidth / totalHeight;
+      if (currentRatio >= options.strip.ratio) {
+        if (options.strip.ratio - lastRatio < currentRatio - options.strip.ratio) {
+          stripNum -= 1;
+        }
+        break;
+      }
+      stripNum++;
+      lastRatio = currentRatio;
+    }
   } else {
     throw new Error(`Unsupported strip mode: ${options.strip.mode}`);
   }
 
-  const stripWidth = beatmap.keys * options.note.width;
-  const stripHeight = (end - start) * options.time.scale / stripNum;
-  const totalWidth = options.margin * 2 + stripNum * stripWidth + (stripNum - 1) * options.strip.spacing;
-  const totalHeight = options.margin * 2 + stripHeight;
+  let [stripWidth, stripHeight, contentWidth, contentHeight, totalWidth, totalHeight] = computeLayout(stripNum);
+  let finalScale = options.layout.finalScale;
+  let margin = [...options.layout.margin] as [number, number];
+
+  if (options.layout.targetSize) {
+    const [targetWidth, targetHeight] = options.layout.targetSize;
+
+    // Calculate maximum scale to prevent content from exceeding target size
+    const scaleX = targetWidth / totalWidth;
+    const scaleY = targetHeight / totalHeight;
+    
+    // Reduce finalScale if it would exceed target size
+    finalScale = Math.min(finalScale, scaleX, scaleY);
+
+    // Adjust margin to exactly meet target size
+    margin[0] = Math.max(margin[0], (targetWidth / finalScale - contentWidth) / 2);
+    margin[1] = Math.max(margin[1], (targetHeight / finalScale - contentHeight) / 2);
+    
+    totalWidth = margin[0] * 2 + contentWidth;
+    totalHeight = margin[1] * 2 + contentHeight;
+  }
 
   return {
     beatmap,
@@ -165,8 +231,10 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
       height: stripHeight,
       spacing: options.strip.spacing,
     },
+    margin,
     totalWidth,
     totalHeight,
+    finalScale,
   }
 }
 
@@ -191,7 +259,7 @@ export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> =
 
   const background = ctx.background.enabled ? ctx.background.createElement(ctx) : [];
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ctx.totalWidth * ctx.finalScale[0]}" height="${ctx.totalHeight * ctx.finalScale[1]}">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ctx.totalWidth * ctx.finalScale}" height="${ctx.totalHeight * ctx.finalScale}">
   <defs>
     <g id="origin">
       <g id="notes">
@@ -206,7 +274,7 @@ export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> =
     </g>
   </defs>
   ${background.join('\n  ')}
-  <g transform="scale(${ctx.finalScale[0]}, ${-ctx.finalScale[1]}) translate(0, ${-ctx.totalHeight})">
+  <g transform="scale(${ctx.finalScale}, ${-ctx.finalScale}) translate(${ctx.margin[0]}, ${-ctx.totalHeight + ctx.margin[1]})">
     ${strips.join('\n    ')}
   </g>
 </svg>`;
@@ -265,17 +333,16 @@ export function generateBarLinePositions(
 
 function createClipPath(ctx: Context, stripIndex: number): string[] {
   const y = stripIndex * ctx.strip.height
-  const width = ctx.beatmap.keys * ctx.note.width;
 
   return [
     `<clipPath id="strip-${stripIndex}">`,
-    `  <rect x="0" y="${y}" width="${width}" height="${ctx.strip.height}" />`,
+    `  <rect x="0" y="${y}" width="${ctx.strip.width}" height="${ctx.strip.height}" />`,
     `</clipPath>`];
 }
 
 function createStrip(ctx: Context, i: number): string[] {
-  const offsetX = ctx.margin + i * (ctx.strip.width + ctx.strip.spacing);
-  const offsetY = ctx.margin - i * ctx.strip.height;
+  const offsetX = i * (ctx.strip.width + ctx.strip.spacing);
+  const offsetY = -i * ctx.strip.height;
     
   return [`<use href="#origin" transform="translate(${offsetX}, ${offsetY})" clip-path="url(#strip-${i})" />`];
 }

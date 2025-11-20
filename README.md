@@ -88,30 +88,43 @@ const defaultOptions = {
      * Layout mode for strips
      * - 'num': specify number of strips
      * - 'time': specify time duration per strip
+     * - 'ratio': specify target aspect ratio (width / height) to auto-calculate strip count (approximate)
     */
-    mode: 'num' as 'num' | 'time',
+    mode: 'num' as 'num' | 'time' | 'ratio',
     /** Number of vertical strips to divide the timeline */
     num: 8 as number | undefined,
     /** Time duration per strip in ms */
     time: 30000 as number | undefined,
+    /** Target aspect ratio (width / height), actual ratio may vary slightly */
+    ratio: 1.5 as number | undefined,
     /** Spacing between strips in px */
     spacing: 30,
   },
-  /** Margin around the entire SVG in px */
-  margin: 10,
-  /** Final scale factor [x, y] applied to the entire SVG */
-  finalScale: [1, 1] as [number, number],
+  layout: {
+    /**
+     * Margin around the entire SVG in px [horizontal, vertical]
+     * When targetSize is set, this value serves as the minimum margin
+     * and will be automatically adjusted to meet the target size requirements
+     */
+    margin: [10, 10] as [number, number],
+    /**
+     * Maximum scale factor applied to the entire SVG
+     * When targetSize is set:
+     * - Will be automatically reduced (if needed) to prevent content from exceeding targetSize
+     * - After scaling, margin will be adjusted to exactly meet targetSize requirements
+     */
+    finalScale: 1.0 as number,
+    /**
+     * Target size [width, height] for the final SVG
+     * When set, the SVG will be adjusted to fit this size by:
+     * 1. Reducing finalScale (if needed) to prevent content from exceeding targetSize
+     * 2. Adjusting margin (using the margin value as minimum) to exactly meet targetSize
+     */
+    targetSize: undefined as [number, number] | undefined,
+  },
 };
 ```
 <!-- OPTIONS:END -->
-
-## TODO
-
-- [ ] **Auto-sizing**: Automatically determine `stripNum` and `scale` based on target width/height
-
-  ```typescript
-  render(data, { targetWidth: 1920, targetHeight: 1080 })
-  ```
 
 ## License
 

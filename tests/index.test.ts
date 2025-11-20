@@ -24,6 +24,15 @@ test('render', async () => {
     })),
   };
 
-  const svg = render(data, {strip: { mode: 'time' }, finalScale: [0.8, 0.8]});
+  const svg = render(data, {
+    strip: {
+      mode: 'ratio',
+      ratio: 1.5
+    },
+    layout: {
+      finalScale: 1,
+      targetSize: [1200, 1000],
+    }
+  });
   fs.writeFileSync('./tests/output.svg', svg);
 })

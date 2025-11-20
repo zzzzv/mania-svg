@@ -1,1 +1,2 @@
 pnpm update-readme
+git add README.md

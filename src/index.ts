@@ -141,6 +141,11 @@ const defaultOptions = {
 export type Options = typeof defaultOptions;
 
 function resolveOptions(beatmap: Beatmap, options: Options) {
+  const MAX_STRIP_NUM = 50;
+  const MIN_TARGET_DIM = 32;
+  const MAX_TARGET_DIM = 20000;
+  const MAX_RATIO = 20;
+
   let start = options.time.start === 'auto' ?
     Math.max(0, beatmap.timingPoints[0].time) :
     options.time.start;
@@ -166,20 +171,37 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
     if (options.strip.num === undefined) {
       throw new Error('Strip num must be specified when strip mode is "num"');
     }
+    if (options.strip.num <= 0 || options.strip.num > MAX_STRIP_NUM) {
+      throw new Error(`Invalid strip.num: must be in (0, ${MAX_STRIP_NUM}]`);
+    }
     stripNum = options.strip.num;
   } else if (options.strip.mode === 'time') {
     if (options.strip.time === undefined) {
       throw new Error('Strip time must be specified when strip mode is "time"');
     }
+    if (options.strip.time <= 0) {
+      throw new Error('Invalid strip.time: must be a positive number');
+    }
     stripNum = Math.ceil((end - start) / options.strip.time);
+    stripNum = Math.min(stripNum, MAX_STRIP_NUM);
+    if (stripNum <= 0) {
+      throw new Error('Computed strip number is zero; check strip.time and time range');
+    }
     end = start + stripNum * options.strip.time;
   } else if (options.strip.mode === 'ratio') {
     if (options.strip.ratio === undefined) {
       throw new Error('Strip ratio must be specified when strip mode is "ratio"');
     }
+    if (options.strip.ratio <= 0) {
+      throw new Error('Invalid strip.ratio: must be a positive number');
+    }
+    if (options.strip.ratio > MAX_RATIO) {
+      throw new Error(`strip.ratio is too large; maximum allowed is ${MAX_RATIO}`);
+    }
     stripNum = 1;
     let lastRatio = 0;
-    while (true) {
+
+    while (stripNum <= MAX_STRIP_NUM) {
       const [,,,, totalWidth, totalHeight] = computeLayout(stripNum);
       const currentRatio = totalWidth / totalHeight;
       if (currentRatio >= options.strip.ratio) {
@@ -200,7 +222,12 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
   let margin = [...options.layout.margin] as [number, number];
 
   if (options.layout.targetSize) {
-    const [targetWidth, targetHeight] = options.layout.targetSize;
+    let [targetWidth, targetHeight] = options.layout.targetSize;
+
+    if (targetWidth < MIN_TARGET_DIM || targetWidth > MAX_TARGET_DIM ||
+        targetHeight < MIN_TARGET_DIM || targetHeight > MAX_TARGET_DIM) {
+      throw new Error(`layout.targetSize dimensions must be within [${MIN_TARGET_DIM}, ${MAX_TARGET_DIM}]`);
+    }
 
     // Calculate maximum scale to prevent content from exceeding target size
     const scaleX = targetWidth / totalWidth;

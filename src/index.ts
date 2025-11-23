@@ -1,3 +1,5 @@
+import { create } from "domain";
+
 export interface Note {
   /** Column index (0-based) */
   column: number;
@@ -33,6 +35,9 @@ export const presetColorSchemes = [
 ];
 
 export const presetKeyLayouts = {
+  1: [0],
+  2: [0, 0],
+  3: [0, 1, 0],
   4: [0, 1, 1, 0],
   5: [0, 1, 2, 1, 0],
   6: [0, 1, 0, 0, 1, 0],
@@ -40,9 +45,13 @@ export const presetKeyLayouts = {
   8: [0, 1, 0, 2, 2, 0, 1, 0],
   9: [3, 0, 1, 0, 2, 0, 1, 0, 3],
   10: [3, 0, 1, 0, 2, 2, 0, 1, 0, 3],
+  12: [3, 1, 0, 1, 0, 2, 2, 0, 1, 0, 1, 3],
+  14: [3, 0, 1, 0, 1, 0, 2, 2, 0, 1, 0, 1, 0, 3],
+  16: [3, 1, 0, 1, 0, 1, 0, 2, 2, 0, 1, 0, 1, 0, 1, 3],
+  18: [3, 0, 1, 0, 1, 0, 1, 0, 2, 2, 0, 1, 0, 1, 0, 1, 0, 3],
 };
 
-export function createColorSelector(
+export function createNoteColorSelector(
   colors: readonly string[] = presetColorSchemes,
   layouts: Readonly<Record<number, readonly number[]>> = presetKeyLayouts
 ) {
@@ -76,7 +85,7 @@ const defaultOptions = {
     /** Corner radius in px */
     rx: 2,
     /** Function to select color for each object */
-    colorSelector: createColorSelector(),
+    colorSelector: createNoteColorSelector(),
     /** Function to create SVG elements for each object */
     createElement: createNote,
   },
@@ -89,11 +98,29 @@ const defaultOptions = {
     scale: 0.1,
   },
   barline: {
-    /** Height of bar lines in px */
-    height: 1,
+    /** Stroke width of bar lines in px */
+    strokeWidth: 1,
     color: '#85F000', // green
     /** Function to create SVG elements for each bar line */
     createElement: createBarLine,
+  },
+  axis: {
+    /** Width of the axis area in px */
+    width: 30,
+    /** Style for labels at whole minutes (e.g., 1:00, 2:00) */
+    minute: {
+      color: '#FF3F00',
+      strokeWidth: 2,
+      fontSize: 18,
+    },
+    /** Style for second labels */
+    second: {
+      color: '#FFFFFF',
+      strokeWidth: 1,
+      fontSize: 18,
+    },
+    /** Function to create SVG elements for each axis label */
+    createElement: createAxisLabel,
   },
   strip: {
     /**
@@ -109,8 +136,6 @@ const defaultOptions = {
     time: 30000 as number | undefined,
     /** Target aspect ratio (width / height), actual ratio may vary slightly */
     ratio: 1.5 as number | undefined,
-    /** Spacing between strips in px */
-    spacing: 30,
   },
   layout: {
     /**
@@ -154,9 +179,9 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
   end += options.note.height / options.time.scale;
 
   const computeLayout = (stripNum: number) => {
-    const stripWidth = beatmap.keys * options.note.width;
+    const stripWidth = beatmap.keys * options.note.width + options.axis.width;
     const stripHeight = (end - start) * options.time.scale / stripNum;
-    const contentWidth = stripNum * stripWidth + (stripNum - 1) * options.strip.spacing;
+    const contentWidth = stripNum * stripWidth;
     const contentHeight = stripHeight;
     const totalWidth = options.layout.margin[0] * 2 + contentWidth;
     const totalHeight = options.layout.margin[1] * 2 + contentHeight;
@@ -254,7 +279,6 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
       num: stripNum,
       width: stripWidth,
       height: stripHeight,
-      spacing: options.strip.spacing,
     },
     margin,
     totalWidth,
@@ -303,6 +327,10 @@ export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> =
 
   const barLines = generateBarLinePositions(beatmap.timingPoints, ctx.time.start, ctx.time.end)
     .flatMap(time => ctx.barline.createElement(ctx, time));
+  
+  const axisLabels = times(Math.floor(ctx.time.end / 1000))
+    .filter(i => i * 1000 >= ctx.time.start)
+    .flatMap(i => ctx.axis.createElement(ctx, i * 1000));
 
   const clipPaths = times(ctx.strip.num).flatMap(i => createClipPath(ctx, i));
 
@@ -318,6 +346,9 @@ export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> =
       </g>
       <g id="barlines">
         ${barLines.join('\n        ')}
+      </g>
+      <g id="axis">
+        ${axisLabels.join('\n        ')}
       </g>
     </g>
     <g id="clip-paths">
@@ -349,10 +380,10 @@ function createNote(ctx: Context, note: Note): string[] {
 function createBarLine(ctx: Context, time: number): string[] {
   const y = (time - ctx.time.start) * ctx.time.scale;
   const width = ctx.beatmap.keys * ctx.note.width;
-  const height = ctx.barline.height;
+  const height = ctx.barline.strokeWidth;
   const color = ctx.barline.color;
 
-  return [`<rect x="0" y="${y}" width="${width}" height="${height}" fill="${color}" />`];
+  return [`<line x1="0" y1="${y}" x2="${width}" y2="${y}" stroke="${color}" stroke-width="${height}" />`];
 }
 
 /**
@@ -382,6 +413,21 @@ export function generateBarLinePositions(
   return result;
 }
 
+function createAxisLabel(ctx: Context, time: number): string[] {
+  const x = ctx.beatmap.keys * ctx.note.width;
+  const y = (time - ctx.time.start) * ctx.time.scale;
+  const minutes = Math.floor(time / 60000);
+  const seconds = Math.floor((time % 60000) / 1000);
+  const style = seconds === 0 ? ctx.axis.minute : ctx.axis.second;
+  const label = seconds === 0 ? `${minutes}` : `${seconds}`;
+  const { color, strokeWidth: lineHeight, fontSize } = style;
+
+  return [
+    `<line x1="${x}" y1="${y}" x2="${x + ctx.axis.width / 5}" y2="${y}" stroke="${color}" stroke-width="${lineHeight}" />`,
+    `<text x="${x + ctx.axis.width / 2}" y="${-y}" fill="${color}" font-size="${fontSize}" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">${label}</text>`,
+  ]
+}
+
 function createClipPath(ctx: Context, stripIndex: number): string[] {
   const y = stripIndex * ctx.strip.height
 
@@ -392,7 +438,7 @@ function createClipPath(ctx: Context, stripIndex: number): string[] {
 }
 
 function createStrip(ctx: Context, i: number): string[] {
-  const offsetX = i * (ctx.strip.width + ctx.strip.spacing);
+  const offsetX = i * ctx.strip.width;
   const offsetY = -i * ctx.strip.height;
     
   return [`<use href="#origin" transform="translate(${offsetX}, ${offsetY})" clip-path="url(#strip-${i})" />`];

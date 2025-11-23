@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1014.6400000000002">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000">
   <defs>
     <g id="origin">
       <g id="notes">
@@ -1904,109 +1904,313 @@
         <rect x="40" y="9976.400000000001" width="20" height="6" rx="2" fill="#FFFFFF" />
       </g>
       <g id="barlines">
-        <rect x="0" y="0" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="155.84415584415603" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="311.68831168831207" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="467.53246753246805" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="623.3766233766241" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="779.2207792207801" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="935.0649350649361" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="1090.9090909090921" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="1246.7532467532483" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="1402.5974025974042" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="1558.4415584415601" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="1714.285714285716" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="1870.129870129872" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="2025.9740259740277" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="2181.8181818181833" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="2337.6623376623393" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="2493.506493506495" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="2649.350649350651" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="2805.194805194807" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="2961.038961038963" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="3116.8831168831184" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="3272.7272727272743" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="3428.5714285714307" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="3584.4155844155866" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="3740.259740259743" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="3896.1038961038994" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="4051.9480519480553" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="4207.792207792211" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="4363.636363636368" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="4519.480519480524" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="4675.32467532468" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="4831.168831168837" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="4987.012987012993" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="5142.857142857149" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="5298.701298701305" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="5454.545454545461" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="5610.389610389618" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="5766.233766233774" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="5922.0779220779295" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="6077.922077922086" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="6233.766233766242" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="6389.610389610399" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="6545.454545454555" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="6701.2987012987105" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="6857.142857142866" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="7012.987012987021" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="7168.831168831177" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="7324.675324675332" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="7480.519480519488" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="7636.363636363643" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="7792.207792207799" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="7948.051948051954" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="8103.89610389611" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="8259.740259740265" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="8415.58441558442" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="8571.428571428576" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="8727.272727272732" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="8883.116883116887" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="9038.961038961043" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="9194.805194805198" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="9350.649350649353" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="9506.493506493509" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="9662.337662337664" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="9818.18181818182" width="140" height="1" fill="#85F000" />
-        <rect x="0" y="9974.025974025975" width="140" height="1" fill="#85F000" />
+        <line x1="0" y1="0" x2="140" y2="0" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="155.84415584415603" x2="140" y2="155.84415584415603" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="311.68831168831207" x2="140" y2="311.68831168831207" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="467.53246753246805" x2="140" y2="467.53246753246805" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="623.3766233766241" x2="140" y2="623.3766233766241" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="779.2207792207801" x2="140" y2="779.2207792207801" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="935.0649350649361" x2="140" y2="935.0649350649361" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="1090.9090909090921" x2="140" y2="1090.9090909090921" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="1246.7532467532483" x2="140" y2="1246.7532467532483" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="1402.5974025974042" x2="140" y2="1402.5974025974042" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="1558.4415584415601" x2="140" y2="1558.4415584415601" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="1714.285714285716" x2="140" y2="1714.285714285716" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="1870.129870129872" x2="140" y2="1870.129870129872" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="2025.9740259740277" x2="140" y2="2025.9740259740277" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="2181.8181818181833" x2="140" y2="2181.8181818181833" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="2337.6623376623393" x2="140" y2="2337.6623376623393" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="2493.506493506495" x2="140" y2="2493.506493506495" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="2649.350649350651" x2="140" y2="2649.350649350651" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="2805.194805194807" x2="140" y2="2805.194805194807" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="2961.038961038963" x2="140" y2="2961.038961038963" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="3116.8831168831184" x2="140" y2="3116.8831168831184" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="3272.7272727272743" x2="140" y2="3272.7272727272743" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="3428.5714285714307" x2="140" y2="3428.5714285714307" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="3584.4155844155866" x2="140" y2="3584.4155844155866" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="3740.259740259743" x2="140" y2="3740.259740259743" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="3896.1038961038994" x2="140" y2="3896.1038961038994" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="4051.9480519480553" x2="140" y2="4051.9480519480553" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="4207.792207792211" x2="140" y2="4207.792207792211" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="4363.636363636368" x2="140" y2="4363.636363636368" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="4519.480519480524" x2="140" y2="4519.480519480524" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="4675.32467532468" x2="140" y2="4675.32467532468" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="4831.168831168837" x2="140" y2="4831.168831168837" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="4987.012987012993" x2="140" y2="4987.012987012993" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="5142.857142857149" x2="140" y2="5142.857142857149" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="5298.701298701305" x2="140" y2="5298.701298701305" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="5454.545454545461" x2="140" y2="5454.545454545461" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="5610.389610389618" x2="140" y2="5610.389610389618" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="5766.233766233774" x2="140" y2="5766.233766233774" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="5922.0779220779295" x2="140" y2="5922.0779220779295" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="6077.922077922086" x2="140" y2="6077.922077922086" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="6233.766233766242" x2="140" y2="6233.766233766242" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="6389.610389610399" x2="140" y2="6389.610389610399" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="6545.454545454555" x2="140" y2="6545.454545454555" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="6701.2987012987105" x2="140" y2="6701.2987012987105" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="6857.142857142866" x2="140" y2="6857.142857142866" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="7012.987012987021" x2="140" y2="7012.987012987021" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="7168.831168831177" x2="140" y2="7168.831168831177" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="7324.675324675332" x2="140" y2="7324.675324675332" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="7480.519480519488" x2="140" y2="7480.519480519488" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="7636.363636363643" x2="140" y2="7636.363636363643" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="7792.207792207799" x2="140" y2="7792.207792207799" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="7948.051948051954" x2="140" y2="7948.051948051954" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="8103.89610389611" x2="140" y2="8103.89610389611" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="8259.740259740265" x2="140" y2="8259.740259740265" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="8415.58441558442" x2="140" y2="8415.58441558442" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="8571.428571428576" x2="140" y2="8571.428571428576" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="8727.272727272732" x2="140" y2="8727.272727272732" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="8883.116883116887" x2="140" y2="8883.116883116887" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="9038.961038961043" x2="140" y2="9038.961038961043" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="9194.805194805198" x2="140" y2="9194.805194805198" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="9350.649350649353" x2="140" y2="9350.649350649353" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="9506.493506493509" x2="140" y2="9506.493506493509" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="9662.337662337664" x2="140" y2="9662.337662337664" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="9818.18181818182" x2="140" y2="9818.18181818182" stroke="#85F000" stroke-width="1" />
+        <line x1="0" y1="9974.025974025975" x2="140" y2="9974.025974025975" stroke="#85F000" stroke-width="1" />
+      </g>
+      <g id="axis">
+        <line x1="140" y1="41.400000000000006" x2="146" y2="41.400000000000006" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-41.400000000000006" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">1</text>
+        <line x1="140" y1="141.4" x2="146" y2="141.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-141.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">2</text>
+        <line x1="140" y1="241.4" x2="146" y2="241.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-241.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">3</text>
+        <line x1="140" y1="341.40000000000003" x2="146" y2="341.40000000000003" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-341.40000000000003" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">4</text>
+        <line x1="140" y1="441.40000000000003" x2="146" y2="441.40000000000003" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-441.40000000000003" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">5</text>
+        <line x1="140" y1="541.4" x2="146" y2="541.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-541.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">6</text>
+        <line x1="140" y1="641.4000000000001" x2="146" y2="641.4000000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-641.4000000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">7</text>
+        <line x1="140" y1="741.4000000000001" x2="146" y2="741.4000000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-741.4000000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">8</text>
+        <line x1="140" y1="841.4000000000001" x2="146" y2="841.4000000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-841.4000000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">9</text>
+        <line x1="140" y1="941.4000000000001" x2="146" y2="941.4000000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-941.4000000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">10</text>
+        <line x1="140" y1="1041.4" x2="146" y2="1041.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1041.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">11</text>
+        <line x1="140" y1="1141.4" x2="146" y2="1141.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1141.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">12</text>
+        <line x1="140" y1="1241.4" x2="146" y2="1241.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1241.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">13</text>
+        <line x1="140" y1="1341.4" x2="146" y2="1341.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1341.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">14</text>
+        <line x1="140" y1="1441.4" x2="146" y2="1441.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1441.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">15</text>
+        <line x1="140" y1="1541.4" x2="146" y2="1541.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1541.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">16</text>
+        <line x1="140" y1="1641.4" x2="146" y2="1641.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1641.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">17</text>
+        <line x1="140" y1="1741.4" x2="146" y2="1741.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1741.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">18</text>
+        <line x1="140" y1="1841.4" x2="146" y2="1841.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1841.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">19</text>
+        <line x1="140" y1="1941.4" x2="146" y2="1941.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-1941.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">20</text>
+        <line x1="140" y1="2041.4" x2="146" y2="2041.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2041.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">21</text>
+        <line x1="140" y1="2141.4" x2="146" y2="2141.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2141.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">22</text>
+        <line x1="140" y1="2241.4" x2="146" y2="2241.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2241.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">23</text>
+        <line x1="140" y1="2341.4" x2="146" y2="2341.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2341.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">24</text>
+        <line x1="140" y1="2441.4" x2="146" y2="2441.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2441.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">25</text>
+        <line x1="140" y1="2541.4" x2="146" y2="2541.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2541.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">26</text>
+        <line x1="140" y1="2641.4" x2="146" y2="2641.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2641.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">27</text>
+        <line x1="140" y1="2741.4" x2="146" y2="2741.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2741.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">28</text>
+        <line x1="140" y1="2841.4" x2="146" y2="2841.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2841.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">29</text>
+        <line x1="140" y1="2941.4" x2="146" y2="2941.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-2941.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">30</text>
+        <line x1="140" y1="3041.4" x2="146" y2="3041.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3041.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">31</text>
+        <line x1="140" y1="3141.4" x2="146" y2="3141.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3141.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">32</text>
+        <line x1="140" y1="3241.4" x2="146" y2="3241.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3241.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">33</text>
+        <line x1="140" y1="3341.4" x2="146" y2="3341.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3341.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">34</text>
+        <line x1="140" y1="3441.4" x2="146" y2="3441.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3441.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">35</text>
+        <line x1="140" y1="3541.4" x2="146" y2="3541.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3541.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">36</text>
+        <line x1="140" y1="3641.4" x2="146" y2="3641.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3641.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">37</text>
+        <line x1="140" y1="3741.4" x2="146" y2="3741.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3741.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">38</text>
+        <line x1="140" y1="3841.4" x2="146" y2="3841.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3841.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">39</text>
+        <line x1="140" y1="3941.4" x2="146" y2="3941.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-3941.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">40</text>
+        <line x1="140" y1="4041.4" x2="146" y2="4041.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4041.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">41</text>
+        <line x1="140" y1="4141.400000000001" x2="146" y2="4141.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4141.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">42</text>
+        <line x1="140" y1="4241.400000000001" x2="146" y2="4241.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4241.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">43</text>
+        <line x1="140" y1="4341.400000000001" x2="146" y2="4341.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4341.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">44</text>
+        <line x1="140" y1="4441.400000000001" x2="146" y2="4441.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4441.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">45</text>
+        <line x1="140" y1="4541.400000000001" x2="146" y2="4541.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4541.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">46</text>
+        <line x1="140" y1="4641.400000000001" x2="146" y2="4641.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4641.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">47</text>
+        <line x1="140" y1="4741.400000000001" x2="146" y2="4741.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4741.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">48</text>
+        <line x1="140" y1="4841.400000000001" x2="146" y2="4841.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4841.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">49</text>
+        <line x1="140" y1="4941.400000000001" x2="146" y2="4941.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-4941.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">50</text>
+        <line x1="140" y1="5041.400000000001" x2="146" y2="5041.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5041.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">51</text>
+        <line x1="140" y1="5141.400000000001" x2="146" y2="5141.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5141.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">52</text>
+        <line x1="140" y1="5241.400000000001" x2="146" y2="5241.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5241.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">53</text>
+        <line x1="140" y1="5341.400000000001" x2="146" y2="5341.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5341.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">54</text>
+        <line x1="140" y1="5441.400000000001" x2="146" y2="5441.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5441.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">55</text>
+        <line x1="140" y1="5541.400000000001" x2="146" y2="5541.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5541.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">56</text>
+        <line x1="140" y1="5641.400000000001" x2="146" y2="5641.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5641.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">57</text>
+        <line x1="140" y1="5741.400000000001" x2="146" y2="5741.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5741.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">58</text>
+        <line x1="140" y1="5841.400000000001" x2="146" y2="5841.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-5841.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">59</text>
+        <line x1="140" y1="5941.400000000001" x2="146" y2="5941.400000000001" stroke="#FF3F00" stroke-width="2" />
+        <text x="155" y="-5941.400000000001" fill="#FF3F00" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">1</text>
+        <line x1="140" y1="6041.400000000001" x2="146" y2="6041.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6041.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">1</text>
+        <line x1="140" y1="6141.400000000001" x2="146" y2="6141.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6141.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">2</text>
+        <line x1="140" y1="6241.400000000001" x2="146" y2="6241.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6241.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">3</text>
+        <line x1="140" y1="6341.400000000001" x2="146" y2="6341.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6341.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">4</text>
+        <line x1="140" y1="6441.400000000001" x2="146" y2="6441.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6441.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">5</text>
+        <line x1="140" y1="6541.400000000001" x2="146" y2="6541.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6541.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">6</text>
+        <line x1="140" y1="6641.400000000001" x2="146" y2="6641.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6641.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">7</text>
+        <line x1="140" y1="6741.400000000001" x2="146" y2="6741.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6741.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">8</text>
+        <line x1="140" y1="6841.400000000001" x2="146" y2="6841.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6841.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">9</text>
+        <line x1="140" y1="6941.400000000001" x2="146" y2="6941.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-6941.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">10</text>
+        <line x1="140" y1="7041.400000000001" x2="146" y2="7041.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7041.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">11</text>
+        <line x1="140" y1="7141.400000000001" x2="146" y2="7141.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7141.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">12</text>
+        <line x1="140" y1="7241.400000000001" x2="146" y2="7241.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7241.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">13</text>
+        <line x1="140" y1="7341.400000000001" x2="146" y2="7341.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7341.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">14</text>
+        <line x1="140" y1="7441.400000000001" x2="146" y2="7441.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7441.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">15</text>
+        <line x1="140" y1="7541.400000000001" x2="146" y2="7541.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7541.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">16</text>
+        <line x1="140" y1="7641.400000000001" x2="146" y2="7641.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7641.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">17</text>
+        <line x1="140" y1="7741.400000000001" x2="146" y2="7741.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7741.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">18</text>
+        <line x1="140" y1="7841.400000000001" x2="146" y2="7841.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7841.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">19</text>
+        <line x1="140" y1="7941.400000000001" x2="146" y2="7941.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-7941.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">20</text>
+        <line x1="140" y1="8041.400000000001" x2="146" y2="8041.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8041.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">21</text>
+        <line x1="140" y1="8141.400000000001" x2="146" y2="8141.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8141.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">22</text>
+        <line x1="140" y1="8241.4" x2="146" y2="8241.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8241.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">23</text>
+        <line x1="140" y1="8341.4" x2="146" y2="8341.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8341.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">24</text>
+        <line x1="140" y1="8441.4" x2="146" y2="8441.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8441.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">25</text>
+        <line x1="140" y1="8541.4" x2="146" y2="8541.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8541.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">26</text>
+        <line x1="140" y1="8641.4" x2="146" y2="8641.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8641.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">27</text>
+        <line x1="140" y1="8741.4" x2="146" y2="8741.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8741.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">28</text>
+        <line x1="140" y1="8841.4" x2="146" y2="8841.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8841.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">29</text>
+        <line x1="140" y1="8941.4" x2="146" y2="8941.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-8941.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">30</text>
+        <line x1="140" y1="9041.4" x2="146" y2="9041.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9041.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">31</text>
+        <line x1="140" y1="9141.4" x2="146" y2="9141.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9141.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">32</text>
+        <line x1="140" y1="9241.4" x2="146" y2="9241.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9241.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">33</text>
+        <line x1="140" y1="9341.4" x2="146" y2="9341.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9341.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">34</text>
+        <line x1="140" y1="9441.4" x2="146" y2="9441.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9441.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">35</text>
+        <line x1="140" y1="9541.4" x2="146" y2="9541.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9541.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">36</text>
+        <line x1="140" y1="9641.4" x2="146" y2="9641.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9641.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">37</text>
+        <line x1="140" y1="9741.4" x2="146" y2="9741.4" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9741.4" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">38</text>
+        <line x1="140" y1="9841.400000000001" x2="146" y2="9841.400000000001" stroke="#FFFFFF" stroke-width="1" />
+        <text x="155" y="-9841.400000000001" fill="#FFFFFF" font-size="18" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">39</text>
       </g>
     </g>
     <g id="clip-paths">
       <clipPath id="strip-0">
-        <rect x="0" y="0" width="140" height="1248.3000000000002" />
+        <rect x="0" y="0" width="170" height="1109.1555555555558" />
       </clipPath>
       <clipPath id="strip-1">
-        <rect x="0" y="1248.3000000000002" width="140" height="1248.3000000000002" />
+        <rect x="0" y="1109.1555555555558" width="170" height="1109.1555555555558" />
       </clipPath>
       <clipPath id="strip-2">
-        <rect x="0" y="2496.6000000000004" width="140" height="1248.3000000000002" />
+        <rect x="0" y="2218.3111111111116" width="170" height="1109.1555555555558" />
       </clipPath>
       <clipPath id="strip-3">
-        <rect x="0" y="3744.9000000000005" width="140" height="1248.3000000000002" />
+        <rect x="0" y="3327.466666666667" width="170" height="1109.1555555555558" />
       </clipPath>
       <clipPath id="strip-4">
-        <rect x="0" y="4993.200000000001" width="140" height="1248.3000000000002" />
+        <rect x="0" y="4436.622222222223" width="170" height="1109.1555555555558" />
       </clipPath>
       <clipPath id="strip-5">
-        <rect x="0" y="6241.500000000001" width="140" height="1248.3000000000002" />
+        <rect x="0" y="5545.777777777779" width="170" height="1109.1555555555558" />
       </clipPath>
       <clipPath id="strip-6">
-        <rect x="0" y="7489.800000000001" width="140" height="1248.3000000000002" />
+        <rect x="0" y="6654.933333333334" width="170" height="1109.1555555555558" />
       </clipPath>
       <clipPath id="strip-7">
-        <rect x="0" y="8738.100000000002" width="140" height="1248.3000000000002" />
+        <rect x="0" y="7764.08888888889" width="170" height="1109.1555555555558" />
+      </clipPath>
+      <clipPath id="strip-8">
+        <rect x="0" y="8873.244444444446" width="170" height="1109.1555555555558" />
       </clipPath>
     </g>
   </defs>
   <rect width="100%" height="100%" fill="#000000" />
-  <g transform="scale(0.8, -0.8) translate(0, -1268.3000000000002)">
-    <use href="#origin" transform="translate(10, 10)" clip-path="url(#strip-0)" />
-    <use href="#origin" transform="translate(180, -1238.3000000000002)" clip-path="url(#strip-1)" />
-    <use href="#origin" transform="translate(350, -2486.6000000000004)" clip-path="url(#strip-2)" />
-    <use href="#origin" transform="translate(520, -3734.9000000000005)" clip-path="url(#strip-3)" />
-    <use href="#origin" transform="translate(690, -4983.200000000001)" clip-path="url(#strip-4)" />
-    <use href="#origin" transform="translate(860, -6231.500000000001)" clip-path="url(#strip-5)" />
-    <use href="#origin" transform="translate(1030, -7479.800000000001)" clip-path="url(#strip-6)" />
-    <use href="#origin" transform="translate(1200, -8728.100000000002)" clip-path="url(#strip-7)" />
+  <g transform="scale(0.7741935483870968, -0.7741935483870968) translate(10, -1200.4111111111113)">
+    <use href="#origin" transform="translate(0, 0)" clip-path="url(#strip-0)" />
+    <use href="#origin" transform="translate(170, -1109.1555555555558)" clip-path="url(#strip-1)" />
+    <use href="#origin" transform="translate(340, -2218.3111111111116)" clip-path="url(#strip-2)" />
+    <use href="#origin" transform="translate(510, -3327.466666666667)" clip-path="url(#strip-3)" />
+    <use href="#origin" transform="translate(680, -4436.622222222223)" clip-path="url(#strip-4)" />
+    <use href="#origin" transform="translate(850, -5545.777777777779)" clip-path="url(#strip-5)" />
+    <use href="#origin" transform="translate(1020, -6654.933333333334)" clip-path="url(#strip-6)" />
+    <use href="#origin" transform="translate(1190, -7764.08888888889)" clip-path="url(#strip-7)" />
+    <use href="#origin" transform="translate(1360, -8873.244444444446)" clip-path="url(#strip-8)" />
   </g>
 </svg>

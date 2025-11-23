@@ -64,7 +64,7 @@ const defaultOptions = {
     /** Corner radius in px */
     rx: 2,
     /** Function to select color for each object */
-    colorSelector: createColorSelector(),
+    colorSelector: createNoteColorSelector(),
     /** Function to create SVG elements for each object */
     createElement: createNote,
   },
@@ -77,11 +77,29 @@ const defaultOptions = {
     scale: 0.1,
   },
   barline: {
-    /** Height of bar lines in px */
-    height: 1,
+    /** Stroke width of bar lines in px */
+    strokeWidth: 1,
     color: '#85F000', // green
     /** Function to create SVG elements for each bar line */
     createElement: createBarLine,
+  },
+  axis: {
+    /** Width of the axis area in px */
+    width: 30,
+    /** Style for labels at whole minutes (e.g., 1:00, 2:00) */
+    minute: {
+      color: '#FF3F00',
+      strokeWidth: 2,
+      fontSize: 18,
+    },
+    /** Style for second labels */
+    second: {
+      color: '#FFFFFF',
+      strokeWidth: 1,
+      fontSize: 18,
+    },
+    /** Function to create SVG elements for each axis label */
+    createElement: createAxisLabel,
   },
   strip: {
     /**
@@ -97,8 +115,6 @@ const defaultOptions = {
     time: 30000 as number | undefined,
     /** Target aspect ratio (width / height), actual ratio may vary slightly */
     ratio: 1.5 as number | undefined,
-    /** Spacing between strips in px */
-    spacing: 30,
   },
   layout: {
     /**

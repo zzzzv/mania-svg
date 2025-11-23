@@ -1,5 +1,3 @@
-import { merge, times, flatMap } from 'lodash-es';
-
 export interface Note {
   /** Column index (0-based) */
   column: number;
@@ -271,19 +269,45 @@ export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
 
+function deepMerge<T extends object>(target: T, source: DeepPartial<T>): T {
+  const result = { ...target } as T;
+  
+  for (const key in source) {
+    if (source.hasOwnProperty(key)) {
+      const sourceValue = source[key];
+      const targetValue = target[key];
+      
+      if (sourceValue !== undefined) {
+        if (typeof sourceValue === 'object' && sourceValue !== null && !Array.isArray(sourceValue) &&
+            typeof targetValue === 'object' && targetValue !== null && !Array.isArray(targetValue)) {
+          result[key] = deepMerge(targetValue, sourceValue as DeepPartial<any>);
+        } else {
+          result[key] = sourceValue as T[Extract<keyof T, string>];
+        }
+      }
+    }
+  }
+  
+  return result;
+}
+
+function times(n: number): number[] {
+  return Array.from({ length: n }, (_, i) => i);
+}
+
 export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> = {}): string {
-  const options = merge({}, defaultOptions, optionsOverride);
+  const options = deepMerge(defaultOptions, optionsOverride);
   const ctx = resolveOptions(beatmap, options);
 
-  const notes = flatMap(beatmap.objects, note => ctx.note.createElement(ctx, note));
+  const notes = beatmap.objects.flatMap(note => ctx.note.createElement(ctx, note));
 
   const barLines = generateBarLinePositions(beatmap.timingPoints, ctx.time.start, ctx.time.end)
     .flatMap(time => ctx.barline.createElement(ctx, time));
 
-  const clipPaths = flatMap(times(ctx.strip.num), i => createClipPath(ctx, i));
+  const clipPaths = times(ctx.strip.num).flatMap(i => createClipPath(ctx, i));
 
-  const strips = flatMap(times(ctx.strip.num), i => createStrip(ctx, i));
-
+  const strips = times(ctx.strip.num).flatMap(i => createStrip(ctx, i));
+  
   const background = ctx.background.enabled ? ctx.background.createElement(ctx) : [];
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ctx.totalWidth * ctx.finalScale}" height="${ctx.totalHeight * ctx.finalScale}">

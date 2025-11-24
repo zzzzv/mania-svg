@@ -1,6 +1,6 @@
 {
   "name": "mania-svg",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A TypeScript library for rendering osu!mania beatmaps to SVG format with vertical strip layout.",
   "type": "module",
   "license": "MIT",

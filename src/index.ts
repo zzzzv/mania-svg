@@ -1,5 +1,3 @@
-import { create } from "domain";
-
 export interface Note {
   /** Column index (0-based) */
   column: number;
@@ -96,6 +94,8 @@ const defaultOptions = {
     end: 'auto' as 'auto' | number,
     /** Vertical scale: px per ms */
     scale: 0.1,
+    /** Time direction: 'up' (bottom to top) or 'down' (top to bottom) */
+    direction: 'up' as 'up' | 'down',
   },
   barline: {
     /** Stroke width of bar lines in px */
@@ -274,6 +274,7 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
       start,
       end,
       scale: options.time.scale,
+      direction: options.time.direction,
     },
     strip: {
       num: stripNum,
@@ -338,6 +339,9 @@ export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> =
   
   const background = ctx.background.enabled ? ctx.background.createElement(ctx) : [];
 
+  const scaleY = ctx.time.direction === 'up' ? -ctx.finalScale : ctx.finalScale;
+  const translateY = ctx.time.direction === 'up' ? -ctx.totalHeight + ctx.margin[1] : ctx.margin[1];
+
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${ctx.totalWidth * ctx.finalScale}" height="${ctx.totalHeight * ctx.finalScale}">
   <defs>
     <g id="origin">
@@ -356,7 +360,7 @@ export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> =
     </g>
   </defs>
   ${background.join('\n  ')}
-  <g transform="scale(${ctx.finalScale}, ${-ctx.finalScale}) translate(${ctx.margin[0]}, ${-ctx.totalHeight + ctx.margin[1]})">
+  <g transform="scale(${ctx.finalScale}, ${scaleY}) translate(${ctx.margin[0]}, ${translateY})">
     ${strips.join('\n    ')}
   </g>
 </svg>`;
@@ -422,9 +426,12 @@ function createAxisLabel(ctx: Context, time: number): string[] {
   const label = seconds === 0 ? `${minutes}` : `${seconds}`;
   const { color, strokeWidth: lineHeight, fontSize } = style;
 
+  const textY = ctx.time.direction === 'up' ? -y : y;
+  const textTransform = ctx.time.direction === 'up' ? 'scale(1, -1)' : '';
+
   return [
     `<line x1="${x}" y1="${y}" x2="${x + ctx.axis.width / 5}" y2="${y}" stroke="${color}" stroke-width="${lineHeight}" />`,
-    `<text x="${x + ctx.axis.width / 2}" y="${-y}" fill="${color}" font-size="${fontSize}" text-anchor="middle" dominant-baseline="middle" transform="scale(1, -1)">${label}</text>`,
+    `<text x="${x + ctx.axis.width / 2}" y="${textY}" fill="${color}" font-size="${fontSize}" text-anchor="middle" dominant-baseline="middle" transform="${textTransform}">${label}</text>`,
   ]
 }
 

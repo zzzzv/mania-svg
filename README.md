@@ -75,6 +75,8 @@ const defaultOptions = {
     end: 'auto' as 'auto' | number,
     /** Vertical scale: px per ms */
     scale: 0.1,
+    /** Time direction: 'up' (bottom to top) or 'down' (top to bottom) */
+    direction: 'up' as 'up' | 'down',
   },
   barline: {
     /** Stroke width of bar lines in px */

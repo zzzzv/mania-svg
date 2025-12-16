@@ -2,7 +2,7 @@
 
 A TypeScript library for rendering osu!mania beatmaps to SVG format with vertical strip layout.
 
-<img src="https://raw.githubusercontent.com/zzzzv/mania-svg/main/assets/output.svg" alt="Example Output" width="400">
+<img src="https://raw.githubusercontent.com/zzzzv/mania-svg/main/assets/output.svg" alt="Example Output" width="600">
 
 ## Installation
 
@@ -28,7 +28,7 @@ const mania = ruleset.applyToBeatmap(parsed);
 
 const data: Beatmap = {
   keys: mania.difficulty.circleSize,
-  objects: mania.hitObjects.map(obj => ({
+  notes: mania.hitObjects.map(obj => ({
     start: obj.startTime,
     end: obj instanceof Hold ? obj.endTime : undefined,
     column: obj.column,
@@ -63,6 +63,10 @@ const defaultOptions = {
     height: 6,
     /** Corner radius in px */
     rx: 2,
+    /** Width of long note body in px */
+    bodyWidth: 10,
+    /** Color of the long note body */
+    bodyColor: '#CCCCCC' as string | undefined,
     /** Function to select color for each object */
     colorSelector: createNoteColorSelector(),
     /** Function to create SVG elements for each object */

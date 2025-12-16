@@ -20,7 +20,7 @@ export interface Beatmap {
   /** Number of columns (keys) */
   keys: number;
   /** Note objects */
-  objects: Note[];
+  notes: Note[];
   /** Timing points */
   timingPoints: TimingPoint[];
 }
@@ -82,6 +82,10 @@ const defaultOptions = {
     height: 6,
     /** Corner radius in px */
     rx: 2,
+    /** Width of long note body in px */
+    bodyWidth: 10,
+    /** Color of the long note body */
+    bodyColor: '#CCCCCC' as string | undefined,
     /** Function to select color for each object */
     colorSelector: createNoteColorSelector(),
     /** Function to create SVG elements for each object */
@@ -174,7 +178,7 @@ function resolveOptions(beatmap: Beatmap, options: Options) {
     options.time.start;
 
   let end = options.time.end === 'auto' ?
-    beatmap.objects.reduce((max, note) => Math.max(max, note.end ?? note.start), start) :
+    beatmap.notes.reduce((max, note) => Math.max(max, note.end ?? note.start), start) :
     options.time.end;
   end += options.note.height / options.time.scale;
 
@@ -324,7 +328,7 @@ export function render(beatmap: Beatmap, optionsOverride: DeepPartial<Options> =
   const options = deepMerge(defaultOptions, optionsOverride);
   const ctx = resolveOptions(beatmap, options);
 
-  const notes = beatmap.objects.flatMap(note => ctx.note.createElement(ctx, note));
+  const notes = beatmap.notes.flatMap(note => ctx.note.createElement(ctx, note));
 
   const barLines = generateBarLinePositions(beatmap.timingPoints, ctx.time.start, ctx.time.end)
     .flatMap(time => ctx.barline.createElement(ctx, time));
@@ -375,10 +379,24 @@ function createBackground(ctx: Context): string[] {
 function createNote(ctx: Context, note: Note): string[] {
   const x = note.column * ctx.note.width;
   const y = (note.start - ctx.time.start) * ctx.time.scale;
+  const noteY = y - ctx.note.height / 2;
   const width = ctx.note.width;
-  const height = note.end ? (note.end - note.start) * ctx.time.scale : ctx.note.height;
   const color = ctx.note.colorSelector(ctx.beatmap.keys, note);
-  return [`<rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${ctx.note.rx}" fill="${color}" />`];
+
+  const shapes = [`<rect x="${x}" y="${noteY}" width="${width}" height="${ctx.note.height}" rx="${ctx.note.rx}" fill="${color}" />`];
+
+  if (note.end) {
+    const lnX = x + (width - ctx.note.bodyWidth) / 2;
+    const lnY = y + ctx.note.height / 2;
+    const lnWidth = ctx.note.bodyWidth;
+    const lnHeight = (note.end - note.start) * ctx.time.scale - ctx.note.height;
+    const lnColor = ctx.note.bodyColor ?? color;
+
+    shapes.push(
+      `<rect x="${lnX}" y="${lnY}" width="${lnWidth}" height="${lnHeight}" fill="${lnColor}" />`
+    );
+  }
+  return shapes;
 }
 
 function createBarLine(ctx: Context, time: number): string[] {

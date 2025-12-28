@@ -14,8 +14,7 @@
     "osu",
     "mania",
     "svg",
-    "beatmap",
-    "rhythm-game"
+    "beatmap"
   ],
   "files": [
     "dist",

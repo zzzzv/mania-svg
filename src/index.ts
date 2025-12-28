@@ -392,9 +392,11 @@ function createNote(ctx: Context, note: Note): string[] {
     const lnHeight = (note.end - note.start) * ctx.time.scale - ctx.note.height;
     const lnColor = ctx.note.bodyColor ?? color;
 
-    shapes.push(
-      `<rect x="${lnX}" y="${lnY}" width="${lnWidth}" height="${lnHeight}" fill="${lnColor}" />`
-    );
+    if (lnHeight > 0) {
+      shapes.push(
+        `<rect x="${lnX}" y="${lnY}" width="${lnWidth}" height="${lnHeight}" fill="${lnColor}" />`
+      );
+    }
   }
   return shapes;
 }

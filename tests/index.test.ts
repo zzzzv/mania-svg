@@ -6,12 +6,12 @@ import { render, type Beatmap } from '../src'
 
 test('render', async () => {
   const decoder = new BeatmapDecoder()
-  const parsed = await decoder.decodeFromPath('./tests/7kln9g.osu', false);
+  const parsed = await decoder.decodeFromPath('./tests/7kln10i.osu', false);
   const ruleset = new ManiaRuleset();
   const mania = ruleset.applyToBeatmap(parsed);
 
   const data: Beatmap = {
-    keys: mania.difficulty.circleSize,
+    keys: mania.totalColumns,
     notes: mania.hitObjects.map(obj => ({
       start: obj.startTime,
       end: obj instanceof Hold ? obj.endTime : undefined,
@@ -25,14 +25,14 @@ test('render', async () => {
   };
 
   const svg = render(data, {
-    strip: {
-      mode: 'ratio',
-      ratio: 1.5
-    },
-    layout: {
-      finalScale: 1,
-      targetSize: [1200, 1000],
-    }
+    // strip: {
+    //   mode: 'ratio',
+    //   ratio: 1.5
+    // },
+    // layout: {
+    //   finalScale: 1,
+    //   targetSize: [1200, 1000],
+    // }
   });
   fs.writeFileSync('./tests/output.svg', svg);
 })

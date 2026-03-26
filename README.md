@@ -92,7 +92,7 @@ const defaultOptions = {
   axis: {
     /** Width of the axis area in px */
     width: 30,
-    /** Style for labels at whole minutes (e.g., 1:00, 2:00) */
+    /** Style for labels at whole minutes */
     minute: {
       color: '#FF3F00',
       strokeWidth: 2,

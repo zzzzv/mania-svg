@@ -3,7 +3,7 @@ export interface Note {
   column: number;
   /** Start time in milliseconds */
   start: number;
-  /** End time in milliseconds, optional for hold notes */
+  /** End time in milliseconds, only used for hold notes */
   end?: number;
 }
 
@@ -111,7 +111,7 @@ const defaultOptions = {
   axis: {
     /** Width of the axis area in px */
     width: 30,
-    /** Style for labels at whole minutes (e.g., 1:00, 2:00) */
+    /** Style for labels at whole minutes */
     minute: {
       color: '#FF3F00',
       strokeWidth: 2,
